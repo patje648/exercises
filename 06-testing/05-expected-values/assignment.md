@@ -107,19 +107,19 @@ Implement this function in `mergesort.py`.
 
 In `tests.py`, write a parametrized test function `test_split_in_two`:
 
-* `test_split_in_two` should have one parameter, namely the list to be split.
-* Use `@parametrized` to pass it lists whose length range from 0 to, say, 100.
-* These input lists should contain distinct elements.
+- `test_split_in_two` should have one parameter, namely the list to be split.
+- Use `@parametrized` to pass it lists whose length range from 0 to, say, 100.
+- These input lists should contain distinct elements.
   For example, say your implementation of `split_in_two` contains a bug and splits `[a, b, c, d]` into `([a, b], [a, b])`.
   If your test uses `[0, 0, 0, 0]` as input, you'll get back (`[0, 0], [0, 0]`), which is correct.
   The bug remained unnoticed.
   However, if instead you use `[0, 1, 2, 3]`, then the bug will become apparent as you'll get `([0, 1], [0, 1])` instead of `([0, 1], [2, 3])`.
-* Please don't hardcode a hundred lists.
+- Please don't hardcode a hundred lists.
   It is trivial to generate a hundred lists with distinct elements.
-* Don't hardcode expected results either.
+- Don't hardcode expected results either.
   Instead, have the test check two things:
-  * If `split_in_two(ns)` returns `(left, right)`, then `left + right` should be equal to `ns`.
-  * `left` and `right`'s lengths should differ maximally by one.
+  - If `split_in_two(ns)` returns `(left, right)`, then `left + right` should be equal to `ns`.
+  - `left` and `right`'s lengths should differ maximally by one.
 
 ### `merge_sorted`
 
@@ -173,19 +173,19 @@ def test_merge_sorted(left, right):
 
 Pytest will then call `test_merge_sorted` with all possible combinations of values for `left` and `right`.
 
-* You can hardcode values for `left` and `right`.
-* Remember to only specify _sorted_ lists.
-* Try to think of special cases:
-  * The empty list.
-  * A list with gaps in it (e.g. `[4, 10, 15]`.)
-  * A list containing the same value more than once (e.g. `[2, 5, 5, 9]`).
-* Specify at least 5 possible values for both `left` and `right`, so that it total there are at least 25 combinations in total.
+- You can hardcode values for `left` and `right`.
+- Remember to only specify _sorted_ lists.
+- Try to think of special cases:
+  - The empty list.
+  - A list with gaps in it (e.g. `[4, 10, 15]`.)
+  - A list containing the same value more than once (e.g. `[2, 5, 5, 9]`).
+- Specify at least 5 possible values for both `left` and `right`, so that it total there are at least 25 combinations in total.
 
 Have the test check the result by asserting that `test_merge_sorted(left, right) == sorted(left + right)`.
 
 > If you're wondering why not simply use `sorted(left + right)` as implementation for `test_merge_sorted`: you could, but it wouldn't work as fast.
-  Here we are actually comparing results of a slow algorithm with that of a fast algorithm.
-  This idea will be revisited in a later exercise.
+> Here we are actually comparing results of a slow algorithm with that of a fast algorithm.
+> This idea will be revisited in a later exercise.
 
 ### `merge_sort`
 
@@ -194,10 +194,10 @@ It does not modify `ns` in any way.
 
 It works as follows:
 
-* It splits `ns` in two, say `left` and `right`.
-* It recursively sorts `left` and `right`.
+- It splits `ns` in two, say `left` and `right`.
+- It recursively sorts `left` and `right`.
   Let's call the results `sorted_left` and `sorted_right`.
-* `sorted_left` and `sorted_right` are merged using `merge_sorted_lists`.
+- `sorted_left` and `sorted_right` are merged using `merge_sorted_lists`.
 
 As always with recursion, you also need to know when to stop.
 Ask yourself the question which cases are trivially solved.
@@ -207,14 +207,14 @@ Implement `merge_sort` as described above.
 Write a parametrized test named `test_merge_sort`.
 The test function should have two parameters:
 
-* `expected`, a sorted list.
-* `ns`, an unsorted permutation of `expected`, i.e., it contains the same elements but not necessarily in the same order.
+- `expected`, a sorted list.
+- `ns`, an unsorted permutation of `expected`, i.e., it contains the same elements but not necessarily in the same order.
 
 Use `@parametrized` to feed it pairs of `expected` and `ns`:
 
-* Start by manually picking an arbitrary sorted list.
+- Start by manually picking an arbitrary sorted list.
   This will be used as value for `expected`.
-* Use `itertools.permutations` to generate all permutations.
+- Use `itertools.permutations` to generate all permutations.
   These will be used as values for `ns`.
 
 For example, you can pick `[1, 2, 3]` as `expected`.

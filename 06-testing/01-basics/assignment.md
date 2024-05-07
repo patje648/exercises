@@ -5,11 +5,11 @@ Your code can be efficient, modular and elegant, but if it doesn't produce the r
 
 Since correctness is so important, there are many tools that aid you in achieving it:
 
-* Static typing
-* Verification tools
-* Assertions
-* Correctness proofs
-* Writing tests
+- Static typing
+- Verification tools
+- Assertions
+- Correctness proofs
+- Writing tests
 
 Each of these approaches has its own strengths and weaknesses.
 Combining them is often possible ([Swiss cheese model](https://en.wikipedia.org/wiki/Swiss_cheese_model)), allowing us to combine strengths and avoid weaknesses.
@@ -52,8 +52,8 @@ Simply group your testing code in a separate file, and keep it there, ready to b
 
 People who remove tests assume that
 
-* their tests are exhaustive and that they've just shown their code is 100% bug free, so no need to ever test it again; and
-* their code will never need to be modified in any way (e.g., an optimization, an extra optional parameter, etc.)
+- their tests are exhaustive and that they've just shown their code is 100% bug free, so no need to ever test it again; and
+- their code will never need to be modified in any way (e.g., an optimization, an extra optional parameter, etc.)
 
 Those assumptions are more often than not wrong.
 So keep your tests.
@@ -94,17 +94,17 @@ Our goal will be to keep the "reasons for failure" of every test as low as possi
 
 When a test fails, you'll want to be able what exactly was being tested:
 
-* If objects are involved, what state were they in?
-* What action was performed?
-* What was the expected result and what was the actual result?
+- If objects are involved, what state were they in?
+- What action was performed?
+- What was the expected result and what was the actual result?
 
 ### Fast Running Tests
 
 In practice, tests are run quite often:
 
-* As will be explained in the section about regression testing, tests are run after every little code change.
-* Tests can also be run live, i.e., continuously in the background as you write code.
-* The development process is also often set up (using [Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) or [GitHub actions](https://github.com/features/actions)) to automatically run tests before allowing you to commit your changes to the master/main branch.
+- As will be explained in the section about regression testing, tests are run after every little code change.
+- Tests can also be run live, i.e., continuously in the background as you write code.
+- The development process is also often set up (using [Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) or [GitHub actions](https://github.com/features/actions)) to automatically run tests before allowing you to commit your changes to the master/main branch.
 
 Depending on the project, there can also be _many_ tests to run.
 In other words, you want the tests to run fast.
@@ -114,7 +114,6 @@ In other words, you want the tests to run fast.
 Tests should always be run in isolation.
 By this we mean that tests should not be able to affect each other's results.
 The order in which the tests are run should not matter, and tests should be able to be run in parallel without affecting the outcome.
-
 
 ## Pytest
 
@@ -242,14 +241,14 @@ They should pass.
 However, `overlapping_intervals`'s implementation is actually faulty: the tests are incomplete.
 Your task is
 
-* Add more `assert`s to the test.
+- Add more `assert`s to the test.
   Try to think of as many cases as you can.
   Make sure to check cases where the expected result is `True` and cases where the expected result is `False`.
-* Try to understand what's wrong with `overlapping_intervals`'s implementation.
-* Fix `overlapping_intervals`.
-* Run your own tests again and make sure they pass.
+- Try to understand what's wrong with `overlapping_intervals`'s implementation.
+- Fix `overlapping_intervals`.
+- Run your own tests again and make sure they pass.
   If not, go back to fixing `overlapping_intervals`.
-* Run our tests by using `pytest -x verify.py`.
+- Run our tests by using `pytest -x verify.py`.
   If these don't all pass, go back to step 1.
 
 > You should always commit all files you were tasked to update.
